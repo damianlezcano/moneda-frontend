@@ -156,3 +156,8 @@ parameters:
   description: Environment
   required: true
   value: dev
+- name: url
+  displayName: URL backend
+  description: URL backend
+  required: true
+  value: http://backend-service-ci-hello-dev.192.168.64.6.nip.io/camel/monedas
