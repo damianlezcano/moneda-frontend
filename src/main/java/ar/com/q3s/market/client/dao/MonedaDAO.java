@@ -44,8 +44,8 @@ public class MonedaDAO implements DAO{
 			String payload = invoke(null, path, "GET");
 			System.out.println("## list: " + payload);
 			ObjectMapper objectMapper = new ObjectMapper();
-			List<EntityDomain> list = objectMapper.readValue(payload, new TypeReference<List<Moneda>>(){});
-			return list.get(0);
+			EntityDomain entity = objectMapper.readValue(payload, new TypeReference<Moneda>(){});
+			return entity;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
