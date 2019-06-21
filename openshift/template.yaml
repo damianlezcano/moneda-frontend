@@ -82,6 +82,8 @@ objects:
               configMapKeyRef:
                 key: hello.environment
                 name: ${APP_NAME}
+          - name: url
+            value: ${HELLO_URL}
           ports:
           - containerPort: 8080
             protocol: TCP
