@@ -83,7 +83,7 @@ objects:
                 key: hello.environment
                 name: ${APP_NAME}
           - name: url
-            value: ${HELLO_URL}
+            value: ${URL}
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -156,7 +156,7 @@ parameters:
   description: Environment
   required: true
   value: dev
-- name: url
+- name: URL
   displayName: URL backend
   description: URL backend
   required: true
