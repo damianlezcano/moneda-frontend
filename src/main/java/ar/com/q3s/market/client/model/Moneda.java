@@ -19,8 +19,8 @@ public class Moneda implements EntityDomain {
 	@Column(name = "SIMBOLO")
 	private String simbolo;
 	
-	@Column(name = "DESCRIPCION")
-	private String descripcion;
+//	@Column(name = "DESCRIPCION")
+//	private String descripcion;
 	
 	@Column(name = "COTIZACION")
 	private Double cotizacion;
@@ -44,13 +44,13 @@ public class Moneda implements EntityDomain {
 		this.simbolo = simbolo;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+//	public String getDescripcion() {
+//		return descripcion;
+//	}
+//
+//	public void setDescripcion(String descripcion) {
+//		this.descripcion = descripcion;
+//	}
 
 	public Double getCotizacion() {
 		return cotizacion;

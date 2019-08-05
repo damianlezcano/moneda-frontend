@@ -16,16 +16,18 @@ import ar.com.q3s.market.client.model.EntityDomain;
 
 public class MonedaDAO implements DAO{
 
-	String uri = null; //"http://localhost:4200/rest/currency/1.8";
+	String URI = null; //"http://localhost:4200/rest/currency/1.8";
+	String CONTEXT = "/monedas";
 	
 	public MonedaDAO() {
-		uri = System.getenv("uri");
+		URI = System.getenv("uri");
+		System.out.println("# URI: " + URI);
 	}
 	
 	@Override
 	public List<EntityDomain> list(Class<?> clazz) {
 		try {
-			String path = "/monedas";
+			String path = CONTEXT;
 			String payload = invoke(null, path, "GET");
 			System.out.println("## list: " + payload);
 			ObjectMapper objectMapper = new ObjectMapper();
@@ -40,7 +42,7 @@ public class MonedaDAO implements DAO{
 	@Override
 	public EntityDomain get(Class<?> clazz, Long id) {
 		try {
-			String path = "/monedas/" + id;
+			String path = CONTEXT + "/" + id;
 			String payload = invoke(null, path, "GET");
 			System.out.println("## list: " + payload);
 			ObjectMapper objectMapper = new ObjectMapper();
@@ -55,7 +57,7 @@ public class MonedaDAO implements DAO{
 	@Override
 	public boolean persist(EntityDomain entity) {
 		try {
-			String path = "/monedas";
+			String path = CONTEXT;
 			ObjectMapper mapper = new ObjectMapper();
 			String jsonStr = mapper.writeValueAsString(entity);
 			invoke(jsonStr, path, "POST");
@@ -69,7 +71,7 @@ public class MonedaDAO implements DAO{
 	@Override
 	public boolean merge(EntityDomain entity) {
 		try {
-			String path = "/monedas/" + entity.getId();
+			String path = CONTEXT + "/" + entity.getId();
 			ObjectMapper mapper = new ObjectMapper();
 			String jsonStr = mapper.writeValueAsString(entity);
 			invoke(jsonStr, path, "PUT");
@@ -83,7 +85,7 @@ public class MonedaDAO implements DAO{
 	@Override
 	public boolean remove(Class<?> clazz, Long id) {
 		try {
-			String path = "/monedas/" + id;
+			String path = CONTEXT + "/" + id;
 			invoke(null, path, "DELETE");
 			return true;
 		} catch (Exception e) {
@@ -95,7 +97,7 @@ public class MonedaDAO implements DAO{
 	protected String invoke(String payload, String path, String method) throws Exception {
 		String response = "";
 		try {
-			URL url = new URL(uri + path);
+			URL url = new URL(URI + path);
 			
 			byte[] postDataBytes = null;
 			if(payload != null) {
