@@ -9,7 +9,7 @@
 	<properties>
 		<jdk.version>1.7</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jetty-version>8.1.14.v20131031</jetty-version>
+		<jetty-version>9.4.34.v20201102</jetty-version>
 		<javafx.version>2.2</javafx.version>
 	</properties>
 
